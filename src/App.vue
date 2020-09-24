@@ -7,12 +7,20 @@
     <!-- Vue Files & The Root Component -->
     <h2>Vue Files & The Root Component</h2>
     <p>{{greeting()}}</p>
+
+    <!-- Nesting Componets-->
+    <h2>Nesting Components</h2>
+    <nestedG></nestedG>
+    <nestedL></nestedL>
   </div>
 </template>
 
 
 <!-- Inside this html, data can be accessed by exporting an object inside the script tag -->
 <script>
+  // Nesting Components
+  import nestedL from './nestedL.vue'
+
   export default {
   // Name of the component
   name: 'app',
@@ -31,7 +39,11 @@
     },
     computed: {
 
-    }
+    },
+    components: {
+      // Nesting Components
+      'nestedL': nestedL,
+    },
 }
 </script>
 
