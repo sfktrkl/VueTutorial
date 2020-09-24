@@ -1,7 +1,7 @@
 <!-- .vue file is just an extension of a vue component. -->
 <!-- This component has a template like other components -->
 <template>
-  <div>
+  <div id="app-body">
     <h1>{{title}}</h1>
 
     <!-- Vue Files & The Root Component -->
@@ -18,6 +18,12 @@
     <p class="first">From root element (first)</p>
     <p class="second">From root element (second)</p>
     <componentCSS></componentCSS>
+
+    <!-- Component Examples -->
+    <h2>Component Examples</h2>
+    <app-header></app-header>
+    <app-footer></app-footer>
+    <app-player></app-player>
   </div>
 </template>
 
@@ -29,6 +35,11 @@
 
   // Component CSS
   import componentCSS from './componentCSS.vue'
+
+  // Component Examples
+  import Header from './components/Header.vue'
+  import Footer from './components/Footer.vue'
+  import Player from './components/Player.vue'
 
   export default {
   // Name of the component
@@ -55,11 +66,19 @@
 
       // Component CSS
       'componentCSS': componentCSS,
+
+      // Component Examples
+      'app-header': Header,
+      'app-footer': Footer,
+      'app-player': Player,
     },
 }
 </script>
 
 <style>
+body {
+  margin-left: 0px;
+}
 p.first {
   color: purple;
 }
@@ -67,6 +86,10 @@ p.first {
 
 <!-- Use scoped attribute to apply styles to this component only -->
 <style scoped>
+#app-body {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
 p.second {
   color: blue;
 }
