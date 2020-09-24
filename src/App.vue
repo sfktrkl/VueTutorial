@@ -12,6 +12,12 @@
     <h2>Nesting Components</h2>
     <nestedG></nestedG>
     <nestedL></nestedL>
+
+    <!-- Component CSS-->
+    <h2>Component CSS</h2>
+    <p class="first">From root element (first)</p>
+    <p class="second">From root element (second)</p>
+    <componentCSS></componentCSS>
   </div>
 </template>
 
@@ -20,6 +26,9 @@
 <script>
   // Nesting Components
   import nestedL from './nestedL.vue'
+
+  // Component CSS
+  import componentCSS from './componentCSS.vue'
 
   export default {
   // Name of the component
@@ -43,10 +52,22 @@
     components: {
       // Nesting Components
       'nestedL': nestedL,
+
+      // Component CSS
+      'componentCSS': componentCSS,
     },
 }
 </script>
 
 <style>
+p.first {
+  color: purple;
+}
+</style>
 
+<!-- Use scoped attribute to apply styles to this component only -->
+<style scoped>
+p.second {
+  color: blue;
+}
 </style>
