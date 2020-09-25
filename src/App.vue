@@ -24,6 +24,10 @@
     <app-header></app-header>
     <app-footer></app-footer>
     <app-player></app-player>
+
+    <!-- Props -->
+    <h2>Props</h2>
+    <props :title="titleProp"></props>
   </div>
 </template>
 
@@ -41,6 +45,9 @@
   import Footer from './components/Footer.vue'
   import Player from './components/Player.vue'
 
+  // Props
+  import Props from './props.vue'
+
   export default {
   // Name of the component
   name: 'app',
@@ -49,6 +56,9 @@
     return {
       // Vue Files & The Root Component
       title: 'Vue Tutorial',
+
+      // Props
+      titleProp: 'Hello from root component to props',
     }
     },
     methods: {
@@ -71,6 +81,9 @@
       'app-header': Header,
       'app-footer': Footer,
       'app-player': Player,
+
+      // Props
+      'props': Props,
     },
 }
 </script>
