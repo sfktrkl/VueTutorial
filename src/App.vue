@@ -83,6 +83,17 @@
         <button @click.prevent>Submit</button>
       </div>
     </form-helper>
+
+    <!-- Dynamic Components -->
+    <h2>Dynamic Components</h2>
+    <button @click="component = 'form-one'">Show Form One</button>
+    <button @click="component = 'form-two'">Show Form Two</button>
+    <!-- When changing between forms, component is kind of destroyed and
+         data taken from user is removed. We can use keep-alive to keep on
+         data intact. -->
+    <keep-alive>
+      <component :is="component"></component>
+    </keep-alive>
   </div>
 </template>
 
@@ -119,6 +130,10 @@
   // Slots
   import formHelper from './formHelper.vue'
 
+  // Dynamic Components
+  import formOne from './formOne.vue'
+  import formTwo from './formTwo.vue'
+
   export default {
   // Name of the component
   name: 'app',
@@ -140,6 +155,9 @@
 
       // Slots
       dynamicText: 'I am a dynamic text for slot',
+
+      // Dynamic Components
+      component: 'form-one',
     }
     },
     methods: {
@@ -186,6 +204,10 @@
 
       // Slots
       'form-helper': formHelper,
+
+      // Dynamic Components
+      'form-one': formOne,
+      'form-two': formTwo,
     },
 }
 </script>
