@@ -48,6 +48,10 @@
     <h2>Event Bus</h2>
     <bus-one></bus-one>
     <bus-two></bus-two>
+
+    <!-- Life-cycle Hooks -->
+    <h2>Life-cycle Hooks</h2>
+    <life-cycle></life-cycle>
   </div>
 </template>
 
@@ -77,6 +81,9 @@
   // Event Bus
   import busOne from './busOne.vue'
   import busTwo from './busTwo.vue'
+
+  // Life-cycle Hooks
+  import lifeCycle from './lifeCycle.vue'
 
   export default {
   // Name of the component
@@ -136,6 +143,9 @@
       // Event Bus
       'bus-one': busOne,
       'bus-two': busTwo,
+
+      // Life-cycle Hooks
+      'life-cycle': lifeCycle,
     },
 }
 </script>
