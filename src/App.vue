@@ -52,6 +52,37 @@
     <!-- Life-cycle Hooks -->
     <h2>Life-cycle Hooks</h2>
     <life-cycle></life-cycle>
+
+    <!-- Slots -->
+    <h2>Slots</h2>
+    <!-- We can pass data to child components using props.
+        Like this we can also pass template with slots. -->
+    <form-helper>
+      <!-- Use slot names to be able to use multiple slots
+           and to be able to place them in different places. -->
+      <h3 slot="title">I am the slot title</h3>
+      <p slot="text">I am a paragraph for slot</p>
+      <!-- Dynamic data should be defined in this component -->
+      <p slot="dynamic-text">{{dynamicText}}</p>
+
+      <!-- Example use of slots -->
+      <!-- We can have some custom styles and structure inside the
+           from helper and every time when we need to create a new
+           form, we can use the form helper to create a new form
+           without worrying about creating new styles and structure
+           of the new form. -->
+      <div slot="form-header">
+        <h4>This is the title of the form</h4>
+        <p>Information about form</p>
+      </div>
+      <div slot="form-fields">
+        <input type="text" placeholder="Name" required />
+        <input type="password" placeholder="Password" required />
+      </div>
+      <div slot="form-controls">
+        <button @click.prevent>Submit</button>
+      </div>
+    </form-helper>
   </div>
 </template>
 
@@ -85,6 +116,9 @@
   // Life-cycle Hooks
   import lifeCycle from './lifeCycle.vue'
 
+  // Slots
+  import formHelper from './formHelper.vue'
+
   export default {
   // Name of the component
   name: 'app',
@@ -103,6 +137,9 @@
 
       // Events
       titleEvent: 'Hello from root',
+
+      // Slots
+      dynamicText: 'I am a dynamic text for slot',
     }
     },
     methods: {
@@ -146,6 +183,9 @@
 
       // Life-cycle Hooks
       'life-cycle': lifeCycle,
+
+      // Slots
+      'form-helper': formHelper,
     },
 }
 </script>
