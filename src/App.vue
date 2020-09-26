@@ -28,6 +28,15 @@
     <!-- Props -->
     <h2>Props</h2>
     <props :title="titleProp"></props>
+
+    <!-- Primitive & Reference Types -->
+    <!-- Primitive types: string, numbers and booleans
+         Reference types: objects, arrays -->
+    <!-- When a reference type is passed through props,
+        and edited original value will also change. -->
+    <h2>Primitive & Reference Types</h2>
+    <p>From root: {{name}} and {{obj.name}}</p>
+    <types :name="name" :obj="obj"></types>
   </div>
 </template>
 
@@ -48,6 +57,9 @@
   // Props
   import Props from './props.vue'
 
+  // Primitive & Reference Types
+  import Types from './types.vue'
+
   export default {
   // Name of the component
   name: 'app',
@@ -59,6 +71,10 @@
 
       // Props
       titleProp: 'Hello from root component to props',
+
+      // Primitive & Reference Types
+      name: 'Primitive Name',
+      obj: { name: 'Reference Name' },
     }
     },
     methods: {
@@ -84,6 +100,9 @@
 
       // Props
       'props': Props,
+
+      // Primitive & Reference Types
+      'types': Types,
     },
 }
 </script>
