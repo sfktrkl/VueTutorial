@@ -43,6 +43,11 @@
     <p>{{titleEvent}}</p>
     <!-- Use $event parameter to get emitted value -->
     <events :title="titleEvent" @change-title="updateTitle($event)"></events>
+
+    <!-- Event Bus -->
+    <h2>Event Bus</h2>
+    <bus-one></bus-one>
+    <bus-two></bus-two>
   </div>
 </template>
 
@@ -68,6 +73,10 @@
 
   // Events
   import Events from './events.vue'
+
+  // Event Bus
+  import busOne from './busOne.vue'
+  import busTwo from './busTwo.vue'
 
   export default {
   // Name of the component
@@ -123,6 +132,10 @@
 
       // Events
       'events': Events,
+
+      // Event Bus
+      'bus-one': busOne,
+      'bus-two': busTwo,
     },
 }
 </script>
