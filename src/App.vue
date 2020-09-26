@@ -37,6 +37,12 @@
     <h2>Primitive & Reference Types</h2>
     <p>From root: {{name}} and {{obj.name}}</p>
     <types :name="name" :obj="obj"></types>
+
+    <!-- Events -->
+    <h2>Events</h2>
+    <p>{{titleEvent}}</p>
+    <!-- Use $event parameter to get emitted value -->
+    <events :title="titleEvent" @change-title="updateTitle($event)"></events>
   </div>
 </template>
 
@@ -60,6 +66,9 @@
   // Primitive & Reference Types
   import Types from './types.vue'
 
+  // Events
+  import Events from './events.vue'
+
   export default {
   // Name of the component
   name: 'app',
@@ -75,12 +84,20 @@
       // Primitive & Reference Types
       name: 'Primitive Name',
       obj: { name: 'Reference Name' },
+
+      // Events
+      titleEvent: 'Hello from root',
     }
     },
     methods: {
       // Vue Files & The Root Component
       greeting: function () {
         return 'Hello from the root component';
+      },
+
+      // Events
+      updateTitle: function (newTitle) {
+        this.titleEvent = newTitle;
       },
     },
     computed: {
@@ -103,6 +120,9 @@
 
       // Primitive & Reference Types
       'types': Types,
+
+      // Events
+      'events': Events,
     },
 }
 </script>
